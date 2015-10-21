@@ -10,3 +10,6 @@ RUN curl http://pwnadventure.com/PwnAdventure3Server.tar.gz -o /tmp/PwnAdventure
 RUN mkdir -p /opt/pwn-adventure3 \
         && tar -x -z -v -f /tmp/PwnAdventure3Server.tar.gz --strip-components=1 -C /opt/pwn-adventure3 \
         && rm /tmp/PwnAdventure3Server.tar.gz
+
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+ENTRYPOINT "/docker-entrypoint.sh"
